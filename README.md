@@ -23,12 +23,15 @@ Manual features include statistics of prior purchase history. As for automatic f
 > * calculate score by taking inner product for <u,p> 
 > * similar operations on aisle and department level
 > * both score <u,p> and compressed topic representations of users/items serves as good features
+> 
 > WORD2VEC
 > * similar as LDA, but only on product level
+> 
 > LSTM
 > * Interval between user u's sequential purchase of product p is modeled as a time sequence.
 > * Use LSTM to construct regression model for predicting next value of this time sequence.
 > * The predicted next interval serves as a good feature.
+> 
 > DREAM
 > * RNN and bayesian personalized rank based Model, refer to this repo for my implementation
 > * DREAM provides <u,p> scores, dynamic user representaions and item embeddings.
@@ -56,20 +59,28 @@ Python Files
 
 > `bayes_optim_lgb.py`
 > * lightGBM model tuned by bayesian optimization
+> 
 > `lgb_cv.py`
 > * lightGBM model 5-fold cv
+> 
 > `xgb_train_eval_test.py`
 > * xgboost model 
+>
 > `transactions.py`
 > * craft features manually from raw transaction log/user purchase history
+> 
 > `feats.py'
 > * combine all features and make train/test dataset
+> 
 > `inference.py`
 > * construct orders using P(u,p) 
+> 
 > `evaluation.py`
 > * some functions related to local evaluation
+> 
 > `constants.py`	
 > * some constants such as file path
+> 
 > `utils.py`
 > * some useful functions
 
@@ -77,8 +88,10 @@ Jupyter notebbooks
 
 > `EDA and Feat Craft`
 > * dataset exploration and feature crafting
+> 
 > `Evaluation and Bagging`
 > * local evaluation and bagging models
+> 
 > `Submission and Bagging`
 > * generate submissions
 
