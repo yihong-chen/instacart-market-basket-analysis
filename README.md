@@ -10,7 +10,7 @@ This repository contains my solution for the Instacart Market Analysis Competiti
 
 The problem is formulated as approximating P(u,p | user's prior purchase history) which stands for how much likely user u would repurchase product p given prior purchase history.
 
-The main model should be a binary classifer and features created manually or automatically are feed to the classfier for generating predictions.
+The main model should be a binary classifer and features created manually or automatically are fed to the classfier for generating predictions.
 
 ### Features
 I construted both manual features and automatic features using unsupervised learning and neural networks.
