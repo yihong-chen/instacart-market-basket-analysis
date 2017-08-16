@@ -69,7 +69,7 @@ Python Files
 > `transactions.py`
 > * craft features manually from raw transaction log/user purchase history
 > 
-> `feats.py'
+> `feats.py`
 > * combine all features and make train/test dataset
 > 
 > `inference.py`
