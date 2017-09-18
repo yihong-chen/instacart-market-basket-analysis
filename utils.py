@@ -5,12 +5,11 @@ import pandas as pd
 import itertools
 import multiprocessing
 from joblib import Parallel, delayed
+from mp_generic import mp_groupby
 
 from math import sqrt
 from scipy.stats import entropy
 from sklearn.utils import shuffle
-from mp_generic import mp_groupby
-from f1optim import F1Optimizer # disable numba acceleration
 from numpy.random import binomial, beta
 from sklearn.metrics import f1_score, recall_score, precision_score, mean_squared_error
 
@@ -18,24 +17,35 @@ import lightgbm as lgb
 import xgboost as xgb 
 
 import constants, inference
-
+from f1optim import F1Optimizer # disable numba acceleration
 
 ###### Log  Extraction
+
 def flatten_multiidx(df):
     '''
-        given a df where the columns of df are multiindex
-        useful for dealing with groupby-agg results
-        return a df with flatten index
+        Given a df where the columns are multiindex(>=2 levels), flat it into one-level index
+        Useful for dealing with groupby-agg results
+    Args:
+        df: pandas DataFrame
+    Return:
+        pandas DataFrame with flatten index
     '''
     def sel_level(col):
         '''
-            col = (level0, level1)
-            select which level of index to use as new col names
+            Select which level of index to use as new col names
+        Args:
+            col: tuple, (col_name_level_0, col_name_level_1, col_name_level_2, ... )
+        Return:
+            col: string, new col name
+        Example:
+            col = ('price', 'max') --> 'price_max' 
         '''
-        return col[1] if col[1] != '' else col[0]
+        col = [level for level in col if level != '']
+        return '_'.join(col)
     
     df.columns = [sel_level(col) for col in df.columns.values]
     return df
+
 ######BEFORE TRAIN UTILS
 
 def train_test_split_users(train, test_size, seed = 1993):
