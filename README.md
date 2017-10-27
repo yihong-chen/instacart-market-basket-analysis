@@ -33,7 +33,7 @@ Manual features include statistics of prior purchase history. As for automatic f
 > * The predicted next interval serves as a good feature.
 > 
 > DREAM
-> * RNN and bayesian personalized rank based Model, refer to this repo for my implementation
+> * RNN and bayesian personalized rank based Model, refer to this [repo](https://github.com/LaceyChen17/DREAM) for my implementation
 > * DREAM provides <u,p> scores, dynamic user representaions and item embeddings.
 > * It captures the sequential information such as periodicity in users' prior purchase history.
 
